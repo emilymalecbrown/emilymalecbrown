@@ -1,6 +1,6 @@
 class Name {
   constructor() {
-    this.nameNodes = []
+    this.letterNodes = []
     this.appendLetters('emilymalecbrown')
   }
 
@@ -16,6 +16,8 @@ class Name {
     div.style.position = 'absolute'
     div.style.left = x + '%'
     div.style.top = y + '%'
+    div.style.transition = 'top 3.5s';
+    div.style.transition = 'left 3.5s';
 
     return div
   }
@@ -29,8 +31,22 @@ class Name {
       const div = this.createLetterDiv(letter, x, y)
       const parentDiv = document.getElementById('name')
 
-      this.nameNodes.push(div)
+      this.letterNodes.push(div)
       parentDiv.appendChild(div)
+    })
+
+    setTimeout(() => this.centerLetters(), 2000)
+  }
+
+  centerLetters() {  
+    let percentageTop = 50;
+    let percentageLeft = 15;
+
+    this.letterNodes.forEach(letter => {
+      letter.style.top = percentageTop + '%'  
+      letter.style.left = percentageLeft + '%'
+
+      percentageLeft = percentageLeft + 5
     })
   }
 }
