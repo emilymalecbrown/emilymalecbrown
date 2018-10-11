@@ -8,7 +8,7 @@ class Name {
     return { x: Math.floor(Math.random() * 100), y: Math.floor(Math.random() * 100)}
   }
 
-  createLetterDiv(letter, x, y) {  
+  createLetterDiv(letter, x, y) {
     const div = document.createElement('div')
 
     div.className = letter
@@ -21,13 +21,13 @@ class Name {
 
     return div
   }
-  
+
   appendLetters(word) {
     word = word.split('')
-    
+
     word.forEach(letter => {
-      const { x, y } = this.randomLocationInViewport() 
-  
+      const { x, y } = this.randomLocationInViewport()
+
       const div = this.createLetterDiv(letter, x, y)
       const parentDiv = document.getElementById('name')
 
@@ -38,12 +38,12 @@ class Name {
     setTimeout(() => this.centerLetters(), 2000)
   }
 
-  centerLetters() {  
+  centerLetters() {
     let percentageTop = 50;
     let percentageLeft = 15;
 
     this.letterNodes.forEach(letter => {
-      letter.style.top = percentageTop + '%'  
+      letter.style.top = percentageTop + '%'
       letter.style.left = percentageLeft + '%'
 
       percentageLeft = percentageLeft + 5
