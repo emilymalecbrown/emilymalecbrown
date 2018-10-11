@@ -16,8 +16,8 @@ class Name {
     div.style.position = 'absolute'
     div.style.left = x + '%'
     div.style.top = y + '%'
-    div.style.transitionProperty = 'all';
-    div.style.transitionDuration = '3s, 5s'
+    div.style.transition = 'top 3.5s';
+    div.style.transition = 'left 3.5s';
 
     return div
   }
@@ -38,14 +38,8 @@ class Name {
     setTimeout(() => this.centerLetters(), 2000)
   }
 
-  fadeInLinks() {
-    const links = document.querySelector('.links')
-    links.style.transition = 'opacity 3.5s'
-    links.style.opacity = 1; 
-  }
-
   centerLetters() {  
-    let percentageTop = 40;
+    let percentageTop = 50;
     let percentageLeft = 15;
 
     this.letterNodes.forEach(letter => {
@@ -54,8 +48,6 @@ class Name {
 
       percentageLeft = percentageLeft + 5
     })
-
-    this.fadeInLinks()
   }
 }
 
