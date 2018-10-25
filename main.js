@@ -5,7 +5,7 @@ class Name {
   }
 
   randomLocationInViewport() {
-    return { x: Math.floor(Math.random() * 100), y: Math.floor(Math.random() * 100)}
+    return { x: Math.floor(Math.random() * 100), y: Math.floor(Math.random() * 100) }
   }
 
   createLetterDiv(letter, x, y) {
@@ -16,8 +16,8 @@ class Name {
     div.style.position = 'absolute'
     div.style.left = x + '%'
     div.style.top = y + '%'
-    div.style.transition = 'top 3.5s';
-    div.style.transition = 'left 3.5s';
+    div.style.transitionProperty = 'all'
+    div.style.transitionDuration = '3s, 5s'
 
     return div
   }
@@ -38,9 +38,15 @@ class Name {
     setTimeout(() => this.centerLetters(), 2000)
   }
 
+  fadeInLinks() {
+    const links = document.querySelector('.links')
+    links.style.transition = 'opacity 3.5s'
+    links.style.opacity = 1
+  }
+
   centerLetters() {
-    let percentageTop = 50;
-    let percentageLeft = 15;
+    let percentageTop = 40
+    let percentageLeft = 15
 
     this.letterNodes.forEach(letter => {
       letter.style.top = percentageTop + '%'
@@ -48,6 +54,8 @@ class Name {
 
       percentageLeft = percentageLeft + 5
     })
+
+    this.fadeInLinks()
   }
 }
 
